@@ -15,11 +15,11 @@ int print_character(va_list argument)
 	return (1);
 }
 /**
- * print_sign - this fucntion prints sign
- * @argument: va_list parameter
- * @base: base 10, 8, 16, 2 etc..
- * Description: print numbers and signed
- * Return: number of characters
+ * print_sign - Prints signed numbers in specified base.
+ * @argument: va_list parameter.
+ * @base: Base 10, 8, 16, etc.
+ * Description: Prints signed numbers in the specified base.
+ * Return: Number of characters printed.
  */
 int print_sign(va_list argument, int base)
 {
