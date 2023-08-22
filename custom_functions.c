@@ -30,7 +30,7 @@ int _strlen(char *s)
 	return (len);
 }
 /**
- *_puts - print string
+ *_puts - Prints a string
  *Description: print some string
  *@str: pointer char
  *Return: Nothing
