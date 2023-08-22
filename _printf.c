@@ -9,27 +9,27 @@ int _printf(const char *format, ...)
 {
 	const char *string;
 	int count = 0;
-	vlist arg;
+	va_list argument;
 
 	if (!format)
 		return (-1);
 
-	va_start(arg, format);
+	va_start(argument, format);
 	string = format;
 
-	count = loop_format(arg, string);
+	count = loop_format(argument, string);
 
-	va_end(arg);
+	va_end(argument);
 	return (count);
 }
 /**
  *loop_format - this is loop format
- *@arg: vlist arg
+ *@argument: va_list argument
  *@string: pointer from format
  *Description: This is a function that makes a loop string pointer 
  *Return: number of characters printed
  */
-int loop_format(vlist arg, const char *string)
+int loop_format(va_list argument, const char *string)
 {
 	int i = 0, flag = 0, cfm = 0, count = 0, chkper = 0;
 
@@ -50,7 +50,7 @@ int loop_format(vlist arg, const char *string)
 				flag++;
 			} else
 			{
-				cfm = function_manager(aux, arg);
+				cfm = function_manager(aux, argument);
 				if (cfm >= 0 && cfm != -1)
 				{
 					i++;
@@ -97,15 +97,15 @@ int chkpercent(int *flag, char aux)
 /**
  * call_function_manager - this calls the function manager
  *@aux: character param aux
- *@arg: vlist arg
+ *@argument: va_list argument
  *Description: This is a function that calls the function manager
  *Return: number of characters printed
  */
 
-int call_function_manager(char aux, vlist arg)
+int call_function_manager(char aux, va_list argument)
 {
 	int count = 0;
 
-	count = function_manager(aux, arg);
+	count = function_manager(aux, argument);
 	return (count);
 }
