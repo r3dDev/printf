@@ -1,9 +1,11 @@
 #include "main.h"
+
 /**
- *_printf - printf
- *@format: const char pointer
- *Description: this functions implement some functions of printf
- *Return: num of characteres printed
+ * _printf - Custom printf function
+ * @format: Format string
+ *
+ * Description: This function implements some functions of printf.
+ * Return: Number of characters printed
  */
 int _printf(const char *format, ...)
 {
@@ -22,12 +24,14 @@ int _printf(const char *format, ...)
 	va_end(arg);
 	return (cont);
 }
+
 /**
- *loop_format - loop format
- *@arg: va_list arg
- *@string: pointer from format
- *Description: This function make loop tp string pointer
- *Return: num of characteres printed
+ * loop_format - Loop through format string
+ * @arg: va_list argument
+ * @string: Pointer to format string
+ *
+ * Description: This function iterates through the format string.
+ * Return: Number of characters printed
  */
 int loop_format(va_list arg, const char *string)
 {
@@ -48,7 +52,8 @@ int loop_format(va_list arg, const char *string)
 			if (aux == '%')
 			{
 				flag++;
-			} else
+			}
+			else
 			{
 				cont_fm = function_manager(aux, arg);
 				if (cont_fm >= 0 && cont_fm != -1)
@@ -57,8 +62,9 @@ int loop_format(va_list arg, const char *string)
 					aux = string[i];
 					if (aux == '%')
 						flag--;
-					cont = cont + cont_fm;
-				} else if (cont_fm == -1 && aux != '\n')
+					cont += cont_fm;
+				}
+				else if (cont_fm == -1 && aux != '\n')
 				{
 					cont += _putchar('%');
 				}
@@ -72,12 +78,14 @@ int loop_format(va_list arg, const char *string)
 	}
 	return (cont);
 }
+
 /**
- * check_percent - call function manager
- *@flag: value by reference
- *@aux: character
- *Description: This function print % pear
- *Return: 1 if % is printed
+ * check_percent - Check and print '%' character
+ * @flag: Value by reference
+ * @aux: Character
+ *
+ * Description: This function prints '%' character.
+ * Return: 1 if '%' is printed, else 0
  */
 int check_percent(int *flag, char aux)
 {
@@ -95,13 +103,13 @@ int check_percent(int *flag, char aux)
 }
 
 /**
- * call_function_manager - call function manager
- *@aux: character parameter
- *@arg: va_list arg
- *Description: This function call function manager
- *Return: num of characteres printed
+ * call_function_manager - Call function manager
+ * @aux: Character parameter
+ * @arg: va_list argument
+ *
+ * Description: This function calls the function manager.
+ * Return: Number of characters printed
  */
-
 int call_function_manager(char aux, va_list arg)
 {
 	int cont = 0;
@@ -109,3 +117,4 @@ int call_function_manager(char aux, va_list arg)
 	cont = function_manager(aux, arg);
 	return (cont);
 }
+
