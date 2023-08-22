@@ -8,30 +8,30 @@
 int _printf(const char *format, ...)
 {
 	const char *string;
-	int count = 0;
-	va_list argument;
+	int cont = 0;
+	va_list arg;
 
 	if (!format)
 		return (-1);
 
-	va_start(argument, format);
+	va_start(arg, format);
 	string = format;
 
-	count = loop_format(argument, string);
+	cont = loop_format(arg, string);
 
-	va_end(argument);
-	return (count);
+	va_end(arg);
+	return (cont);
 }
 /**
  *loop_format - this is loop format
- *@argument: va_list argument
+ *@arg: va_list argument
  *@string: pointer from format
  *Description: This is a function that makes a loop string pointer 
  *Return: number of characters printed
  */
-int loop_format(va_list argument, const char *string)
+int loop_format(va_list arg, const char *string)
 {
-	int i = 0, flag = 0, cfm = 0, count = 0, chkper = 0;
+	int i = 0, flag = 0, cont_fm = 0, cont = 0, check_per = 0;
 
 	while (i < _strlen((char *)string) && *string != '\0')
 	{
@@ -44,54 +44,54 @@ int loop_format(va_list argument, const char *string)
 			if (aux == '\0' && _strlen((char *)string) == 1)
 				return (-1);
 			if (aux == '\0')
-				return (count);
+				return (cont);
 			if (aux == '%')
 			{
 				flag++;
 			} else
 			{
-				cfm = function_manager(aux, argument);
-				if (cfm >= 0 && cfm != -1)
+				cont_fm = function_manager(aux, arg);
+				if (cont_fm >= 0 && cont_fm != -1)
 				{
 					i++;
 					aux = string[i];
 					if (aux == '%')
 						flag--;
-					count = count + cfm;
-				} else if (cfm == -1 && aux != '\n')
+					cont = cont + cont_fm;
+				} else if (cont_fm == -1 && aux != '\n')
 				{
-					count += _putchar('%');
+					cont += _putchar('%');
 				}
 			}
 		}
-		chkper = chkpercent(&flag, aux);
-		count += chkper;
-		if (chkper == 0 && aux != '\0' && aux != '%')
-			count += _putchar(aux), i++;
-		chkper = 0;
+		check_per = check_percent(&flag, aux);
+		cont += check_per;
+		if (check_per == 0 && aux != '\0' && aux != '%')
+			cont += _putchar(aux), i++;
+		check_per = 0;
 	}
-	return (count);
+	return (cont);
 }
 /**
- * chkpercent - call function manager
+ * chkpercent - this calls the function manager
  *@flag: value by reference
  *@aux: character
  *Description: This function prints % per
  *Return: 1 if % is printed
  */
-int chkpercent(int *flag, char aux)
+int check_percent(int *flag, char aux)
 {
 	int tmp_flag;
-	int count = 0;
+	int cont = 0;
 
 	tmp_flag = *flag;
 	if (tmp_flag == 2 && aux == '%')
 	{
 		_putchar('%');
 		tmp_flag = 0;
-		count = 1;
+		cont = 1;
 	}
-	return (count);
+	return (cont);
 }
 
 /**
@@ -102,10 +102,10 @@ int chkpercent(int *flag, char aux)
  *Return: number of characters printed
  */
 
-int call_function_manager(char aux, va_list argument)
+int call_function_manager(char aux, va_list arg)
 {
-	int count = 0;
+	int cont = 0;
 
-	count = function_manager(aux, argument);
-	return (count);
+	cont = function_manager(aux, arg);
+	return (cont);
 }
