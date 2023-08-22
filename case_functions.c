@@ -87,7 +87,7 @@ int print_string(va_list argument)
  * @argument: va_list parameter
  *@representation: pointer parameter
  * Description: This function takes 0123456789ABCDEF or 0123456789abcdef
- * in representation parameter for print hexadecimal format
+ * and prints hexadecimal numbers using provided representation for formatting
  * Return: num of characters
  */
 int print_base16_upper_lower(va_list argument, char *representation)
