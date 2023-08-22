@@ -45,7 +45,7 @@ void _puts(char *str)
 	}
 }
 /**
- *convert_to - convert numbers
+ *convert_to - Converts a list of numbers
  *Description: This function convert numbers to other formats
  *decimal, octal, hexadecimal, binary etc..
  *@representation: char representation[] = "0123456789ABCDEF";
