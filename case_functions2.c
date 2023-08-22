@@ -3,19 +3,19 @@
 
 /**
  * print_ptr - print_base16_upper_lower
- * @arg: va_list parameter
- * Description: This function print address pointer
+ * @argument: va_list parameter
+ * Description: This is a function that prints address pointer
  * in representation parameter for print hexadecimal format
  * Return: address pointer
  */
 
-int print_ptr(va_list arg)
+int print_ptr(va_list argument)
 {
 	unsigned long int dec, buffr;
 	char c[100];
 	int count, n, i;
 
-	dec = (unsigned long int)va_arg(arg, void*);
+	dec = (unsigned long int)va_arg(argument, void*);
 	buffr = dec;
 	count = 1;
 	i = 0;
@@ -53,16 +53,16 @@ int print_ptr(va_list arg)
 }
 
 /**
- * print_rot13 - prints a string using rot13
- * @arg: list of arguments from _printf
+ * print_rot13 - this prints a string using rot13
+ * @argument: list of arguments from _printf
  * Return: length of the printed string
  */
-int print_rot13(va_list arg)
+int print_rot13(va_list argument)
 {
 	register short i, j;
 	char rot13[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char ROT13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
-	char *s = va_arg(arg, char *);
+	char *s = va_arg(argument, char *);
 
 	if (!s)
 	{
@@ -85,15 +85,15 @@ int print_rot13(va_list arg)
 
 /**
  * print_rev - prints a string in reverse
- * @arg: argument from _printf
+ * @argument: argument from _printf
  * if a flag is passed to _printf
  * Return: length of the printed string
  */
-int print_rev(va_list arg)
+int print_rev(va_list argument)
 {
 	int i = 0;
 	int j;
-	char *s = va_arg(arg, char *);
+	char *s = va_arg(argument, char *);
 
 	if (!s)
 	{
