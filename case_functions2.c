@@ -54,8 +54,8 @@ int print_ptr(va_list argument)
 }
 
 /**
- * print_rot13 - this prints a string using rot13
- * @argument: list of arguments from _printf
+ * print_rot13 - Prints a string using the ROT13 encryption.
+ * @argument: List of arguments from _printf.
  * Return: length of the printed string
  */
 int print_rot13(va_list argument)
