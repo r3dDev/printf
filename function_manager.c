@@ -1,68 +1,68 @@
 #include "main.h"
 #include <stdarg.h>
 /**
- *function_manager - function manager
+ *function_manager - this is the function manager
  *@c: character to find
- *@arg: va_list type
- *Description: This function call other functions
+ *@argument: va_list type
+ *Description: This function calls other functions
  * when the character is found
  *Return: count of printed characters
  */
-int function_manager(char c, va_list arg)
+int function_manager(char c, va_list argument)
 {
-	int cont = 0;
+	int count = 0;
 
-	cont = _switch(c, arg);
+	count = _switch(c, argument);
 	if (c == 'p')
-		cont = print_ptr(arg);
-	return (cont);
+		count = print_ptr(argument);
+	return (count);
 }
 /**
  *_switch - switch
  *@c: character to find
- *@arg: va_list type
- *Description: This function evaluate cases
+ *@argument: va_list type
+ *Description: This function evaluates cases
  *Return: count of printed characters
  */
-int _switch(char c, va_list arg)
+int _switch(char c, va_list argument)
 {
-	int cont = 0;
+	int count = 0;
 
 	switch (c)
 	{
 		case 'b':
-			cont += print_unsign(arg, 2);
+			count += print_unsign(argument, 2);
 			break;
 		case 'c':
-			cont += print_character(arg);
+			count += print_character(argument);
 			break;
 		case 'd':
 		case 'i':
-			cont += print_sign(arg, 10);
+			count += print_sign(argument, 10);
 			break;
 		case 'o':
-			cont += print_unsign(arg, 8);
+			count += print_unsign(argument, 8);
 			break;
 		case 'r':
-			cont += print_rev(arg);
+			count += print_rev(argument);
 			break;
 		case 'R':
-			cont += print_rot13(arg);
+			count += print_rot13(argument);
 			break;
 		case 's':
-			cont += print_string(arg);
+			count += print_string(argument);
 			break;
 		case 'u':
-			cont += print_unsign(arg, 10);
+			count += print_unsign(argument, 10);
 			break;
 		case 'x':
-			cont += print_base16_upper_lower(arg, "0123456789abcdef");
+			count += print_base16_upper_lower(argument, "0123456789abcdef");
 			break;
 		case 'X':
-			cont += print_base16_upper_lower(arg, "0123456789ABCDEF");
+			count += print_base16_upper_lower(argument, "0123456789ABCDEF");
 			break;
 		default:
-			cont = -1;
+			count = -1;
 	}
-	return (cont);
+	return (count);
 }
