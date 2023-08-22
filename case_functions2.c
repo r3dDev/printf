@@ -85,9 +85,9 @@ int print_rot13(va_list argument)
 }
 
 /**
- * print_rev - prints a string in reverse
+ * print_rev - Prints a string in reverse.
  * @argument: argument from _printf
- * if a flag is passed to _printf
+ * If a flag is passed to _printf.
  * Return: length of the printed string
  */
 int print_rev(va_list argument)
