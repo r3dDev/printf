@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * print_character - this prints character
- * @argument: va_list parameter
- * Description: prints character
+ * print_character - Prints a single character.
+ * @argument: va_list parameter.
+ * Description: Prints a single character.
  * Return: 1
  */
 int print_character(va_list argument)
