@@ -1,76 +1,76 @@
 #include "main.h"
 /**
- * print_character - prints character
- * @arg: va_list parameter
- * Description: print character
+ * print_character - this prints character
+ * @argument: va_list parameter
+ * Description: prints character
  * Return: 1
  */
-int print_character(va_list arg)
+int print_character(va_list argument)
 {
 	int i;
 
-	i = va_arg(arg, int);
+	i = va_arg(argument, int);
 	_putchar(i);
 
 	return (1);
 }
 /**
- * print_sign - print sign
- * @arg: va_list parameter
+ * print_sign - this fucntion prints sign
+ * @argument: va_list parameter
  * @base: base 10, 8, 16, 2 etc..
  * Description: print numbers and signed
- * Return: num of characters
+ * Return: number of characters
  */
-int print_sign(va_list arg, int base)
+int print_sign(va_list argument, int base)
 {
-	int i = 0, cont = 0;
+	int i = 0, count = 0;
 	char *s;
 
-	i = va_arg(arg, int);
+	i = va_arg(argument, int);
 	if (i < 0)
 	{
 		i = -(i);
 		_putchar('-');
-		cont += 1;
+		count += 1;
 	}
 	s = convert_to("0123456789ABCDEF", i, base);
 	_puts(s);
-	cont += _strlen(s);
-	return (cont);
+	count += _strlen(s);
+	return (count);
 }
 /**
  * print_unsign - print_unsign
- * @arg: va_list parameter
+ * @argument: va_list parameter
  * @base: base 10, 8, 16 etc..
  * Description: print numbers without signed
  * Return: num of characters
  */
-int print_unsign(va_list arg, int base)
+int print_unsign(va_list argument, int base)
 {
-	int cont = 0;
+	int count = 0;
 	unsigned int i;
 	char *s;
 
-	i = va_arg(arg, unsigned int);
+	i = va_arg(argument, unsigned int);
 	s = convert_to("0123456789ABCDEF", i, base);
 	_puts(s);
-	cont = _strlen(s);
+	count = _strlen(s);
 
-	return (cont);
+	return (count);
 
 }
 /**
- * print_string - print string
- * @arg: va_list parameter
+ * print_string - print a string
+ * @argument: va_list parameter
  * Description: print string
  * Return: num of characters
  */
-int print_string(va_list arg)
+int print_string(va_list argument)
 {
 	char *s;
-	int cont = 0;
+	int count = 0;
 
-	s = va_arg(arg, char *);
+	s = va_arg(argument, char *);
 	if (!s)
 	{
 		s = "(null)";
@@ -79,26 +79,26 @@ int print_string(va_list arg)
 		return (_strlen(s));
 	}
 	_puts(s);
-	cont = _strlen(s);
-	return (cont);
+	count = _strlen(s);
+	return (count);
 }
 /**
  * print_base16_upper_lower - print_base16_upper_lower
- * @arg: va_list parameter
+ * @argument: va_list parameter
  *@representation: pointer parameter
  * Description: This function takes 0123456789ABCDEF or 0123456789abcdef
  * in representation parameter for print hexadecimal format
  * Return: num of characters
  */
-int print_base16_upper_lower(va_list arg, char *representation)
+int print_base16_upper_lower(va_list argument, char *representation)
 {
-	unsigned int i = 0, cont = 0;
+	unsigned int i = 0, count = 0;
 	char *s;
 
-	i = va_arg(arg, unsigned int);
+	i = va_arg(argument, unsigned int);
 	s = convert_to(representation, i, 16);
 	_puts(s);
-	cont = _strlen(s);
-	return (cont);
+	count = _strlen(s);
+	return (count);
 
 }
