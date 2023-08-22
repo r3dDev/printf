@@ -39,11 +39,11 @@ int print_sign(va_list argument, int base)
 	return (count);
 }
 /**
- * print_unsign - print_unsign
- * @argument: va_list parameter
- * @base: base 10, 8, 16 etc..
- * Description: print numbers without signed
- * Return: num of characters
+ * print_unsign - Prints unsigned numbers in specified base.
+ * @argument: va_list parameter.
+ * @base: Base 10, 8, 16, etc.
+ * Description: Prints unsigned numbers in the specified base.
+ * Return: Number of characters printed.
  */
 int print_unsign(va_list argument, int base)
 {
