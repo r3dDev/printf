@@ -3,7 +3,7 @@
 
 
 /**
- * _putchar - this writes the character c to stdout
+ * _putchar - Writes the c paramater character to stdout
  * @c: The character to print
  *
  * Return: On success 1.
