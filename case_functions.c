@@ -60,9 +60,9 @@ int print_unsign(va_list argument, int base)
 
 }
 /**
- * print_string - print a string
+ * print_string - Prints a string.
  * @argument: va_list parameter
- * Description: print string
+ * Description: Print string
  * Return: num of characters
  */
 int print_string(va_list argument)
