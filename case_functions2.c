@@ -2,10 +2,11 @@
 #include <stdarg.h>
 
 /**
- * print_ptr - print_base16_upper_lower
+ * print_ptr - Prints the hexadecimal representation
+ * of an address pointer.
  * @argument: va_list parameter
- * Description: This is a function that prints address pointer
- * in representation parameter for print hexadecimal format
+ * Description: This function prints the hexadecimal
+ * representation of an address pointer.
  * Return: address pointer
  */
 
